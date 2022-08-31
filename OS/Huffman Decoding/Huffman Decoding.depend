@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1640532001 source:c:\users\mohamed\desktop\c_projects\huffman decoding\huffman decoding.c
+	<stdio.h>
+	<string.h>
+	<math.h>
+	<stdlib.h>
+

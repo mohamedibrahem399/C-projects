@@ -1,0 +1,134 @@
+/*#include <stdio.h>
+#include <stdlib.h>
+
+signed long int **create_2d_array (int rows , int columns);
+void print_array (signed long int **arr, int n , int l);
+signed long int **search (signed long int **arr1,int c1 , int n ,signed long int **arr2 , int c2 , int l2 );
+
+
+int main()
+{
+    signed long int i;
+    signed long int j;
+    int n , l , n2 , l2;
+
+    //printf("enter the dimension of the first 2d array\n");
+    scanf("%d %d",&n,&l);
+
+    signed long int **arr1= create_2d_array(3 , n*l);
+    signed long int element;
+    int c=0;
+    int c2=0;
+
+    //printf("enter the elements of the first 2d array\n");
+    for(i=0;i<n;i++){
+        for(j=0;j<l;j++){
+            scanf("%ld",&element);
+            //printf("element= %ld\n",element);
+            if(element != 0){
+            //printf("i=%ld, j=%ld, element=%ld\n",i,j,element);
+            arr1[0][c]=i+1;//rows
+            arr1[1][c]=j+1;//collumns
+            arr1[2][c]=element;//values
+            //printf("arr[0][%d]=%ld, arr[1][%d]=%ld, arr[2][%d]=%ld\n",c,arr1[0][c],c,arr1[1][c],c,arr1[2][c]);
+            c++;
+            }
+        }
+    }
+//    printf("rows:\n");
+//    for(i=0;i<c;i++){
+//            printf("%ld ",arr1[0][i ]);
+//    }
+//    printf("\n");
+//    printf("columns:\n");
+//
+//    for(i=0;i<c;i++){
+//           printf("%ld ",arr1[1][i]);
+//        }
+//
+//    printf("\n");
+//    printf("values:\n");
+//    for(i=0;i<c;i++){
+//            printf("%ld ",arr1[2][i]);
+//    }
+//    printf("\n");
+
+
+    //printf("enter the dimension of the second 2d array \n");
+    scanf("%d %d",&n2,&l2);
+    signed long int **arr2= create_2d_array(3, n2 * l2);
+    for(i=0;i<n2;i++){
+        for(j=0;j<l2;j++){
+            scanf("%ld",&element);
+            if(element != 0){
+            arr2[0][c2]=i+1;//rows
+            arr2[1][c2]=j+1;//collumns
+            arr2[2][c2]=element;//values
+            c2++;
+            }
+        }
+    }
+
+signed long int **result;
+
+
+    if( l == n2){
+        result = create_2d_array(n,l2);
+        result= search(arr1,c,n,arr2,c2,l2);
+        print_array(result, n ,l2);
+    }
+    else
+        printf("valid array");
+
+
+    return 0;
+}
+
+signed long int **create_2d_array (int rows , int columns){
+    int i ;
+    signed long int **arr= calloc(rows , sizeof( int *));
+    for (i=0; i<rows ; i++){
+        arr[i] = calloc(columns , sizeof(signed long int));
+    }
+return arr;
+}
+
+
+void print_array (signed long int **arr, int n , int l){
+int i,j;
+    for(i=0; i<n ; i++){
+            for(j=0; j<l ; j++){
+                printf("%ld ",arr[i][j]);
+            }
+        printf("\n");
+        }
+return;
+}
+
+signed long int **search (signed long int **arr1,int c1 , int n ,signed long int **arr2 , int c2 , int l2 ){
+    int i,j,k;
+    signed long int **result;
+    result = create_2d_array(n,l2);
+    //print_array(arr1,3,c1);
+    //print_array(arr2,3,c2);
+
+    for (i=1;i<l2+1;i++){//search in the row of columns values for value i
+        for (j=0;j<c2;j++){// search every element in columns row for value i
+                if (arr2[1][j]== i){// if i found number = i , i need to multiply it with every one in other matrix with the same column
+                    for (k=0;k<c1;k++){
+                        if(arr1[1][k]==arr2[0][j]){
+                            result[arr1[0][k]-1][i-1]= arr1[2][k]*arr2[2][j];
+                            }
+                    }
+                }
+            }
+    }
+//print_array(result, n ,l2);
+return result;
+}
+*/
+
+// ##########################################
+//submetted code in hacker rank:
+// website link:
+//https://www.hackerrank.com/contests/data-structures-lab-2-1635077002/challenges/sparse-matrix-6-1

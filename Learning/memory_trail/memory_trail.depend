@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1635479728 source:c:\users\mohamed\desktop\c_projects\memory_trail\memory_trail.c
+	<stdio.h>
+	<stdlib.h>
+
+1636032894 source:c:\users\mohamed\desktop\c_projects\learning\memory_trail\memory_trail.c
+	<stdio.h>
+	<stdlib.h>
+

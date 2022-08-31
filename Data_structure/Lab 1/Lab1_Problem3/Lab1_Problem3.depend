@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1634588871 source:c:\users\moham\onedrive\desktop\c_projects\lab1_problem3\problem3_add_two_matrix_using_pointers.c
+	<stdio.h>
+	<stdlib.h>
+

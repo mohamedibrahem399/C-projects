@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <stdlib.h>
+void swap (signed long int *a1 ,signed long int *a2 ){
+    signed long int temp = *a1;
+    *a1 = *a2 ;
+    *a2 = temp;
+}
+
+void sort_h(signed long int arr[], int size , int i)
+{
+    int largest_element =  i         ;
+    int left_element    = (2 * i) + 1;
+    int right_element   = (2 * i) + 2;
+
+    if (left_element < size && arr[left_element] > arr[largest_element]){
+        largest_element = left_element;
+    }
+    if (right_element < size && arr[right_element] > arr[largest_element]){
+        largest_element = right_element;
+    }
+
+    if (largest_element != i) {
+        swap(&arr[i], &arr[largest_element]);
+
+        sort_h(arr, size, largest_element);
+    }
+}
+
+void heap_sort(signed long int arr[], int size)
+{
+    int i;
+
+    for (i = (size/2) - 1 ; i >= 0 ; i--){
+        sort_h(arr, size, i);
+        }
+
+    for (i = size - 1; i > 0; i--) {
+        swap(&arr[0], &arr[i]);
+        sort_h(arr, i, 0);
+    }
+}
+
+
+int main()
+{
+    signed long int data;
+    int i;
+    int elements_number;
+    scanf("%d",&elements_number);
+    
+    if(elements_number == 0 || elements_number == 1){
+        printf("0\n");
+        return 0;
+    }
+    
+
+    signed long int *arr = (signed long int*) malloc(elements_number * sizeof(signed long int));
+
+    for(i=0;i<elements_number ; i++){
+        scanf("%ld",&data);
+        arr[i] = data;
+    }
+    heap_sort (arr,elements_number);
+
+    signed long int arr2[elements_number-1];
+
+    for(i=0 ; i<elements_number-1 ; i++){
+        data =  arr[i] - arr[i+1];
+        if(data < 0 ){
+            arr2[i] = -1 * data;
+            }
+        else if( data > 0 ){
+            arr2[i] = data;
+            }
+    }
+
+    heap_sort (arr2 , elements_number-1);
+
+/*
+    printf("\n");
+   for(i=0;i<elements_number-1; i++){
+        printf("arr2[%d] = %ld\n",i,arr2[i]);
+    }
+*/
+
+    printf("%ld\n",arr2[elements_number-2]);
+
+    return 0;
+}

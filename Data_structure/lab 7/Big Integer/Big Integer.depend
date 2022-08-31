@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1639239841 source:c:\users\mohamed\desktop\c_projects\big integer\big integer.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

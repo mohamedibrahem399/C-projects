@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1635297282 source:c:\users\mohamed\desktop\c_projects\data_structure\lab 2\1\sparse_trail2\sparse_trail2.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+

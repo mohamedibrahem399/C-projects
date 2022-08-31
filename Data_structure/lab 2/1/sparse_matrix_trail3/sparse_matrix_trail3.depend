@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1635522726 source:c:\users\mohamed\desktop\c_projects\sparse_matrix_trail3\sparse_matrix_trail3.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<math.h>
+	<stdlib.h>
+
+1636020269 source:c:\users\mohamed\desktop\c_projects\data_structure\lab 2\1\sparse_matrix_trail3\sparse_matrix_trail3.c
+	<stdio.h>
+	<string.h>
+	<math.h>
+	<stdlib.h>
+

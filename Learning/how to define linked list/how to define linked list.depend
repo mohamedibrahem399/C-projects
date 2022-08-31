@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1635722425 source:c:\users\mohamed\desktop\c_projects\how to define linked list\how to define linked list.c
+	<stdio.h>
+	<stdlib.h>
+

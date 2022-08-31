@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1637538005 source:c:\users\mohamed\desktop\c_projects\binary_expression_tree\binary expression tree.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

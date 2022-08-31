@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1636367735 source:c:\users\mohamed\desktop\c_projects\evaluate expression\evaluate expression.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

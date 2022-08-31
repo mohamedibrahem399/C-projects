@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1638826989 source:c:\users\mohamed\desktop\c_projects\binary_tree_with_queue\binary_tree_with_queue.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

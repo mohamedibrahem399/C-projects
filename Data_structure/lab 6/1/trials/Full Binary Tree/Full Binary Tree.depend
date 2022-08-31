@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1638804697 source:c:\users\mohamed\desktop\c_projects\full binary tree\full binary tree.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

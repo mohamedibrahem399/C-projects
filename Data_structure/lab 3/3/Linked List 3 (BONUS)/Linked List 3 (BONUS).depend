@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1635905525 source:c:\users\mohamed\desktop\c_projects\linked list 3 (bonus)\linked list 3 (bonus).c
+	<stdio.h>
+	<string.h>
+	<math.h>
+	<stdlib.h>
+

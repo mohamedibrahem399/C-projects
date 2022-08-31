@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1635727244 source:c:\users\mohamed\desktop\c_projects\linked list trail 3\main.c
+	<assert.h>
+	<ctype.h>
+	<limits.h>
+	<math.h>
+	<stdbool.h>
+	<stddef.h>
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

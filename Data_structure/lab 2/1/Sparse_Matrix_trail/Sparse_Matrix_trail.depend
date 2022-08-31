@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1635296106 source:c:\users\mohamed\desktop\c_projects\sparse_matrix_trail\sparse_matrix_trail.c
+	<stdio.h>
+	<stdlib.h>
+

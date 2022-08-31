@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1639229828 source:c:\users\mohamed\desktop\c_projects\quick sort\quick sort.c
+	<stdio.h>
+	<stdlib.h>
+
+1640526856 source:c:\users\mohamed\desktop\c_projects\learning\quick sort\quick sort.c
+	<stdio.h>
+	<stdlib.h>
+

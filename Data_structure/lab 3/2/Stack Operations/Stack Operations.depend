@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1635829623 source:c:\users\mohamed\desktop\c_projects\stack operations\stack operations.c
+	<stdio.h>
+	<string.h>
+	<math.h>
+	<stdlib.h>
+

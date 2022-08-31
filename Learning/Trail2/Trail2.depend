@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1634930199 source:c:\users\mohamed\desktop\c_projects\trail2\main.c
+	<stdio.h>
+	<stdlib.h>
+

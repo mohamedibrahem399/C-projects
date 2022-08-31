@@ -1,0 +1,182 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct fifo queue;
+typedef struct QNode QNode;
+QNode* create_node ( int key , int value );
+queue* createQ(queue** Q_in);
+void enQ ( queue** Q_in ,  int key , int node_data );
+QNode* deQ (queue** Q_in);
+QNode * SearchQ (queue** Q_in, int key );
+void deleteN(queue** Q_in , int key , int data_new  );
+
+struct QNode {
+    int value;
+    int key;
+    struct QNode *next;
+};
+struct fifo
+{
+    QNode* Rear;
+    QNode* Front;
+    int queue_number_of_elements;
+    int cache;
+};
+
+int main(){
+    queue* queue1= createQ(&queue1);
+
+    int number_of_operations;
+    int cache;
+    int operation;
+    int value = 0;
+    int key   = 0;
+
+    QNode *temp;
+
+    scanf("%d",&number_of_operations);
+    scanf("%d",&cache);
+    queue1->cache = cache;
+
+    int j = number_of_operations;
+    while (j > 0){
+        scanf("%d",&operation);
+        switch (operation){
+            case 1:{
+            if(queue1->cache == 0){
+                scanf("%d",&key);scanf("%d",&value);printf ("Error\n");}
+            else{
+            if(queue1->cache > queue1->queue_number_of_elements){
+                scanf("%d",&key);
+                scanf("%d",&value);
+                temp = SearchQ(&queue1 , key);
+                if(temp != NULL )deleteN (&queue1 ,key , value);
+                else enQ(&queue1 ,key , value );
+                temp = NULL;
+                }
+            else if (queue1->cache <= queue1->queue_number_of_elements){
+                scanf("%d",&key); scanf("%d",&value);
+                temp = SearchQ(&queue1 , key);
+                if(temp != NULL )deleteN (&queue1 , key , value);
+                else { deQ(&queue1); enQ(&queue1,key,value);}
+                temp = NULL;}}
+                break;}
+            case 2:{
+            if (queue1->queue_number_of_elements == 0){
+                scanf("%d",&key); printf ("Not Found\n");}
+            else{ if (queue1->queue_number_of_elements >= 1) {
+                 scanf("%d",&key); temp = SearchQ(&queue1 , key);
+                    if(temp != NULL ){printf("%d\n",temp->value); deleteN (&queue1 , key , temp->value); }
+                else printf ("Not Found\n"); }
+            temp = NULL;}
+            break;}
+            default:{printf ("Error\n");break;}}j--;}
+    return 0;
+}
+
+
+QNode* create_node ( int key , int value ){
+    QNode *node = malloc( sizeof(QNode));
+    node->value = value;
+    node->key  = key;
+    node->next = NULL;
+    return node;
+}
+queue* createQ(queue** Q_in){
+     *Q_in = malloc(sizeof(queue));
+    (*Q_in)->Front   = NULL;
+    (*Q_in)->Rear    = NULL;
+    (*Q_in)->queue_number_of_elements = 0   ;
+    return *Q_in;
+}
+
+void enQ ( queue** Q_in ,  int key , int node_data ){
+    QNode *node= create_node( key , node_data);
+    if( (*Q_in)->Front == NULL){
+        (*Q_in)->Front = node;
+        (*Q_in)->Rear = node;
+        (*Q_in)->Front->next = (*Q_in)->Rear ;
+    }
+    else {
+        (*Q_in)->Rear->next = node;
+    }
+    (*Q_in)->Rear = node;
+    (*Q_in)->queue_number_of_elements++;
+}
+QNode* deQ (queue** Q_in){
+    QNode *node_dequeued;
+    QNode *temp;
+    if( (*Q_in)->Front == NULL){
+        return 0;
+    }
+    else{
+        node_dequeued = create_node( ((*Q_in)->Front->key) , ((*Q_in)->Front->value) );
+        temp = (*Q_in)->Front;
+        (*Q_in)->Front = (*Q_in)->Front->next;
+        (*Q_in)->queue_number_of_elements--;
+        free(temp);
+        return node_dequeued;
+    }
+}
+QNode * SearchQ (queue** Q_in, int key ){
+
+    queue *temp= *Q_in;
+    QNode *wanted_node ;
+    QNode *node_search = create_node(0,0);
+
+    int *arr_value = malloc(temp->queue_number_of_elements * sizeof (int));
+    int *arr_key  = malloc(temp->queue_number_of_elements * sizeof (int));
+
+    int count = temp->queue_number_of_elements;
+    int i;
+    int flag=0;
+
+    for (i=0;i<count;i++){
+            node_search = deQ(&temp);
+            arr_key [i]= node_search->key;
+            arr_value[i]=node_search->value;
+    }
+
+    for (i=0;i<count;i++){
+        enQ(&temp, arr_key [i] , arr_value[i]  );
+        if(arr_key [i] == key ){
+                wanted_node = (temp->Rear);
+                flag = 1;
+            }
+    }
+    if ( flag == 1 )
+        return wanted_node;
+    else
+        return NULL;
+}
+void deleteN(queue** Q_in , int key , int data_new  ){
+    queue *temp= *Q_in;
+
+    unsigned int *arr_value = malloc(temp->queue_number_of_elements * sizeof (int));
+    unsigned int *arr_key  = malloc(temp->queue_number_of_elements * sizeof (int));
+
+    QNode *node_deleted = create_node(0,0);
+
+    int count = temp->queue_number_of_elements;
+    int i;
+    int flag=0;
+
+    for (i=0;i<count;i++){
+            node_deleted = deQ(&temp);
+            arr_key[i] = node_deleted->key;
+            arr_value[i]= node_deleted->value;
+    }
+
+    for (i=0;i<count;i++){
+        if(arr_key [i] == key ){
+                flag = 1;
+            }
+        else{
+            enQ(&temp , arr_key [i] , arr_value[i]  );
+            }
+    }
+    if(flag == 1){
+            enQ(&temp , key , data_new);
+    }
+
+}

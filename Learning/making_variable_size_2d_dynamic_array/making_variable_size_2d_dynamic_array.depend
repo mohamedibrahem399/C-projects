@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1636033744 source:c:\users\mohamed\desktop\c_projects\learning\making_variable_size_2d_dynamic_array\making_variable_size_2d_dynamic_array.c
+	<stdio.h>
+	<stdlib.h>
+
